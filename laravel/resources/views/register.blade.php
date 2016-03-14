@@ -11,7 +11,17 @@ Registrieren
 		<p>Registrieren.</p>
 	</header>       
 </div>
-
+@if ($errors->any())
+<div class='flash alert-danger'>
+    <ul class="panel-body">
+        @foreach ( $errors->all() as $error )
+        <li>
+            {{ $error }}
+        </li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="container">
 	<div class="row white">
 		<br>
@@ -22,25 +32,31 @@ Registrieren
 	        <div class="form-group">
 	            <label class="col-sm-4" for="firstname">Vorname</label>
 	            <div class="col-sm-8">
-	                <input type="text" class="form-control" name="firstname">
+	                <input type="text" class="form-control" name="firstname" value="{{ old('firstname') }}">
 	            </div>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-4" for="lastname">Nachname</label>
 	            <div class="col-sm-8">
-	                <input type="text" class="form-control" name="lastname">
+	                <input type="text" class="form-control" name="lastname" value="{{ old('lastname') }}">
 	            </div>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-4" for="email">Email</label>
 	            <div class="col-sm-8">
-	                <input type="text" class="form-control" name="email">
+	                <input type="text" class="form-control" name="email" value="{{ old('email') }}">
 	            </div>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-4" for="password">Passwort</label>
 	            <div class="col-sm-8">
 	                <input type="password" class="form-control" name="password">
+	            </div>
+	        </div>
+            <div class="form-group">
+	            <label class="col-sm-4" for="password">Passwort bestätigen</label>
+	            <div class="col-sm-8">
+	                <input type="password" class="form-control" name="password_confirmation">
 	            </div>
 	        </div>
 	        <div class="form-group">

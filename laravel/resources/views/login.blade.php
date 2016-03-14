@@ -33,7 +33,7 @@ Login
 	        <div class="form-group">
 	            <label class="col-sm-4" for="email">Email</label>
 	            <div class="col-sm-8">
-	                <input type="text" class="form-control" name="email">
+	                <input type="text" class="form-control" name="email" value="{{ old('email') }}">
 	            </div>
 	        </div>
 	        <div class="form-group">
@@ -54,7 +54,7 @@ Login
         <div class="col-lg-12 callout">
             <span class="glyphicon glyphicon-hand-up big-icon" aria-hidden="true"></span>
             <h2>Noch keinen Account?</h2>
-            <p><a class="btn btn-success" href="#">Hier registrieren</a></p>
+            <p><a class="btn btn-success" href="/register">Hier registrieren</a></p>
         </div><!-- col-lg-4 -->
     </div><!-- row -->
 </div><!-- greywrap -->

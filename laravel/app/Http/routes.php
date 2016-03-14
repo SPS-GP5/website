@@ -19,24 +19,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/intern', function () {
-    return view('intern');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
 Route::get('/documents', function () {
     return view('documents');
 });
 
-Route::get('/login', 'AuthController@showLogin');
+/* === Login === */
+Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin');
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('logout', 'AuthController@showLogout');
+/* === Registration === */
+Route::get('/register', function () { return view('register'); });
+Route::post('/register', 'AuthController@postRegister');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('logout', 'AuthController@getLogout');
+    Route::get('/intern', function () {
+        return view('intern');
+    });
     Route::group(['prefix' => 'intern'], function () {
         
     });
