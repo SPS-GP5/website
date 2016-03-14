@@ -1,0 +1,36 @@
+.login-headerwrap {
+	min-height: 430px !important;
+	padding-top: 50px !important;
+}
+
+form {
+    width: 600px;
+    min-width: 320px;
+    padding-top: 25px;
+}
+
+form label {
+    padding-top: 5px;
+    text-align: left;
+}
+
+.centered {
+    margin: 0 auto;
+}
+
+.login-button {
+	margin-right: 15px;
+}
+
+.login-form {
+	margin-bottom: 10px;
+}
+
+.big-icon {
+	font-size: 72px;
+}
+
+#footerwrap {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}

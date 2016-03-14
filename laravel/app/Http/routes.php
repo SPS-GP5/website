@@ -24,7 +24,7 @@ Route::get('/login', 'AuthController@showLogin');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('logout', 'AuthController@showLogout');
 
-    Route::group(['prefix' => 'start'], function () {
+    Route::group(['prefix' => 'intern'], function () {
         
     });
 });
