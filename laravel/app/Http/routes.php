@@ -15,6 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/intern', function () {
+    return view('intern');
+});
+
+Route::get('/login', 'AuthController@showLogin');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('logout', 'AuthController@showLogout');
+
+    Route::group(['prefix' => 'start'], function () {
+        
+    });
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
