@@ -12,6 +12,17 @@ Login
 		<p>Login.</p>
 	</header>       
 </div><!-- /headerwrap -->
+@if ($errors->any())
+<div class='flash alert-danger'>
+    <ul class="panel-body">
+        @foreach ( $errors->all() as $error )
+        <li>
+            {{ $error }}
+        </li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="container">
 	<div class="row white">
 		<br>
