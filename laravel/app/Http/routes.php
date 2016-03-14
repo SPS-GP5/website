@@ -11,6 +11,10 @@
 |
 */
 
+Route::controllers([
+    'auth' => 'AuthController',
+]);
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,6 +32,7 @@ Route::get('/documents', function () {
 });
 
 Route::get('/login', 'AuthController@showLogin');
+Route::post('/login', 'AuthController@postLogin');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('logout', 'AuthController@showLogout');
@@ -35,19 +40,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'intern'], function () {
         
     });
-});
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
-
-Route::group(['middleware' => ['web']], function () {
-    //
 });
