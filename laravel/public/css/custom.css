@@ -1,4 +1,4 @@
-.login-headerwrap {
+.small-headerwrap {
 	min-height: 430px !important;
 	padding-top: 50px !important;
 }
@@ -18,12 +18,12 @@ form label {
     margin: 0 auto;
 }
 
-.login-button {
+.form-submit-button {
 	margin-right: 15px;
 }
 
 .login-form {
-	margin-bottom: 10px;
+	margin-bottom: 50px;
 }
 
 .big-icon {
@@ -34,3 +34,42 @@ form label {
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
+
+.navbar-header img {
+	width: 25px;
+	background: none;
+}
+
+.navbar-header .logo-bigger {
+	width: 30px;
+}
+
+.documents {
+	padding: 30px 0px 50px 0px;
+}
+
+.document-area {
+	border: 1px solid #b1b1b1;
+	border-radius: 2px;
+	max-width: 700px;
+    margin: 0 auto;
+    padding: 3px;
+}
+
+.document-area:hover {
+	background-color: #f5f5f5;
+}
+
+.document-area .document-title {
+	padding-left: 30px;
+}
+
+.document-area .document-download {
+	text-align: center;
+}
+
+.document-row {
+	margin-bottom: -1px;
+}
+
+

@@ -38,10 +38,10 @@
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
+                            <img src="/img/g5botlogo.png" class="logo-bigger">
                         </button>
                         <a class="navbar-brand hidden-xs hidden-sm" href="/">
-                            <span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span>
+                            <img src="/img/g5botlogo.png">
                         </a>
                     </div>
                     <div class="navbar-collapse collapse">
@@ -57,7 +57,7 @@
 
         <div id="footerwrap">
             <div class="container">
-                <h4>Created by G5BOT-Team | Copyright 2016</h4>
+                <h4>G5BOT-Team | Copyright 2016</h4>
             </div>
         </div>
 
