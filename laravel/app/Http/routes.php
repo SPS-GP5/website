@@ -19,6 +19,14 @@ Route::get('/intern', function () {
     return view('intern');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/documents', function () {
+    return view('documents');
+});
+
 Route::get('/login', 'AuthController@showLogin');
 
 Route::group(['middleware' => 'auth'], function () {
