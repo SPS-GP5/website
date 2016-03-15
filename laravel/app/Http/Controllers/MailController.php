@@ -14,9 +14,9 @@ class MailController extends Controller
     	$url = Config::get('app.domain') . 'confirm/' . $confirmcode;
 
     	$data = array(
-	        'firstname' => "Michael",
-	        'lastname' => "Ester",
-	        'email' => 'mail@michaelester.at',
+	        'firstname' => $firstname,
+	        'lastname' => $lastname,
+	        'email' => $email,
 	        'url' => $url
 	    );
 

@@ -57,7 +57,7 @@
 
         <div id="footerwrap">
             <div class="container">
-                <h4>G5BOT-Team | Copyright 2016</h4>
+                <h4>G5BOT | Copyright 2016</h4>
             </div>
         </div>
 

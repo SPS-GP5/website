@@ -35,8 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
         
         /* === Documents === */
         Route::get('/documents', 'DocumentController@showDocuments');
-        Route::get('/documents/get/{filename}', 'DocumentController@downloadFile');
+        Route::get('/documents/{filename}', 'DocumentController@downloadFile');
     });
 });
-
-Route::get('/mail', 'MailController@sendWelcomeMail');

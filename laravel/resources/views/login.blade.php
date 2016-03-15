@@ -5,13 +5,12 @@ Login
 @stop
 
 @section('content')
-<!-- ==== HEADERWRAP ==== -->
-<div id="headerwrap" class="login-headerwrap" id="home" name="home">
+<div id="headerwrap" class="small-headerwrap">
 	<header class="clearfix">
 		<h1><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></h1>
 		<p>Login.</p>
 	</header>       
-</div><!-- /headerwrap -->
+</div>
 <div class="container">
 	<div class="row white">
 		<br>
@@ -44,16 +43,16 @@ Login
 	        	<button type="submit" class="btn btn-default pull-right form-submit-button">Login</button>
 	        </div>
 	    </form>
-	</div><!-- row -->
-</div><!-- container -->
-<!-- ==== GREYWRAP ==== -->
+	</div>
+</div>
+
 <div id="greywrap">
     <div class="row">
         <div class="col-lg-12 callout">
             <span class="glyphicon glyphicon-hand-up big-icon" aria-hidden="true"></span>
             <h2>Noch keinen Account?</h2>
             <p><a class="btn btn-success" href="/register">Hier registrieren</a></p>
-        </div><!-- col-lg-4 -->
-    </div><!-- row -->
-</div><!-- greywrap -->
+        </div>
+    </div>
+</div>
 @stop
