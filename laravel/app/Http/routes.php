@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/mail', 'MailController@sendWelcomeMail');
+
 Route::controllers([
     'auth' => 'AuthController',
 ]);
