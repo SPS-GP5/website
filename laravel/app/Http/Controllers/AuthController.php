@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Users;
+use App\Models\User;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\MailController;
 use Auth;
+use Hash;
 use Validator;
 use Illuminate\Http\Request;
 
@@ -39,16 +40,18 @@ class AuthController extends Controller
         $password = $request->password;
         
         // Define input validation clause(s) for the login
-        $validator = Validator::make($request->all(),
-            ['email' => 'required|email|max:150']
-        );
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
         if($validator->fails()){
             return redirect('login')
                 ->withErrors($validator)
                 ->withInput($request->except('password'));
-        }else {
-            if(Auth::attempt(['email' => $email, 'password' => $password], false)) {
+        }
+        else {
+            if(Auth::attempt(['email' => $email, 'password' => $password, 'confirmed' => 1, 'active' => 1], true)) {
                 return redirect('/intern');
             }
             else {
@@ -64,38 +67,64 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function showRegister()
+    {
+        if(Auth::check()) {
+            return redirect('/intern');
+        }
+
+        return view('register');
+    }
     
-    public function postRegister(Request $request) {
-        
-        // Define input validation clause(s) for registration 
+    public function postRegister(Request $request)
+    {
+        // Define input validation clause(s) for registration
         $validator = Validator::make($request->all(), [
-            'firstname' => 'required|max:50|alpha',
-            'lastname' => 'required|max:50|alpha',
-            'email' => 'required|email|max:150|unique:users',
-            'password' => 'required|confirmed|min:8|max:300',
+            'firstname' => 'required|min:3|max:50|alpha',
+            'lastname' => 'required|min:3|max:50|alpha',
+            'email' => 'required|email|min:3|max:100|unique:users',
+            'password' => 'required|confirmed|min:8|max:100',
         ]);
 
-        if($validator->fails()){
+        if($validator->fails()) {
             return redirect('register')
                 ->withErrors($validator)
                 ->withInput(
-                    $request->except('password'), 
+                    $request->except('password'),
                     $request->except('password_confirmation')
-                );       
-        }else {
-            $user = new Users;
-            $user->firstName = $request->firstname;
-            $user->lastName = $request->lastname;
+            );
+        }
+        else {
+            $confirmcode = str_random(30);
+
+            $user = new User;
+            $user->firstname = $request->firstname;
+            $user->lastname = $request->lastname;
             $user->email = $request->email;
-            $user->password = bcrypt($request->password);
-            
-            // Default role = 1
-            // Default active = 0
+            $user->password = Hash::make($request->password);
+            $user->confirmcode = $confirmcode;
             $user->save();
 
-            Auth::login($user);
-            return redirect('intern');
+            $mail = MailController::sendWelcomeMail($request->firstname, $request->lastname, $request->email, $confirmcode);
+
+            if($mail == true) {
+                return view('register', array('created' => true));
+            }
+
+            return view('register');
         }
+    }
+
+    public function confirmEmail($confirmcode)
+    {
+        $updated = User::where('confirmcode', $confirmcode)->update(['confirmed' => 1]);
+
+        if($updated == 1) {
+            return redirect('register')->with('confirmed', 'true');
+        }
+        
+        return redirect('register');
     }
 }
 

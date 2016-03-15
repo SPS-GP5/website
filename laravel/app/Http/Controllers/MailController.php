@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Mail;
+use Config;
 
 
 class MailController extends Controller
 {
-    public function sendWelcomeMail()
+    public static function sendWelcomeMail($firstname, $lastname, $email, $confirmcode)
     {
-    	$email = "mail@michaelester.at";
+    	$url = Config::get('app.domain') . 'confirm/' . $confirmcode;
 
-        $data = array(
+    	$data = array(
 	        'firstname' => "Michael",
 	        'lastname' => "Ester",
-	        'email' => 'mail@michaelester.at'
+	        'email' => 'mail@michaelester.at',
+	        'url' => $url
 	    );
 
 	    Mail::send('emails.welcome', $data, function ($message) use ($data) {
@@ -24,7 +26,7 @@ class MailController extends Controller
 
 	    });
 
-	    return "Your email has been sent successfully";
+	    return true;
     }
 }
 

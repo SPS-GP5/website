@@ -12,20 +12,18 @@ Login
 		<p>Login.</p>
 	</header>       
 </div><!-- /headerwrap -->
-@if ($errors->any())
-<div class='flash alert-danger'>
-    <ul class="panel-body">
-        @foreach ( $errors->all() as $error )
-        <li>
-            {{ $error }}
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif
 <div class="container">
 	<div class="row white">
 		<br>
+		@if($errors->any())
+	        <p class="alert alert-danger">
+	            <b>{{ trans_choice('messages.error_occured', sizeof($errors->all())) }}</b>
+	            <br/>
+	            @foreach($errors->all() as $error)
+	                {{ $error }}<br>
+	            @endforeach
+	        </p>
+	    @endif
 		<h1 class="centered">Einloggen oder registrieren</h1>
 		<hr>
 		<form action="/login" method="post" class="form-horizontal centered login-form">
@@ -43,7 +41,7 @@ Login
 	            </div>
 	        </div>
 	        <div class="form-group">
-	        	<button type="submit" class="btn btn-default pull-right login-button">Login</button>
+	        	<button type="submit" class="btn btn-default pull-right form-submit-button">Login</button>
 	        </div>
 	    </form>
 	</div><!-- row -->

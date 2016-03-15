@@ -6,22 +6,37 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Storage;
+use Response;
+use File;
 
 class DocumentController extends Controller
 {
-    public function getDocuments() {
-        $files = Storage::files('pdf/');
+    public function showDocuments()
+    {
+        $dirPath = storage_path() . '/app/documents';
+
+        $files = File::allFiles($dirPath);
+        $filenames = array();
+
+        foreach($files as $file) {
+            $filename = explode($dirPath . '/', $file);
+            $lastmodified = date("d.m.Y H:i:s", filemtime($file));
+            array_push($filenames, array('filename' => $filename[1], 'lastmodified' => $lastmodified));
+        }
         
-        $files = array_map(function($path) {
-            $name = str_replace('pdf/', '', $path);
-            
-            // To be included??
-            //$sizeMB = round((Storage::size($path) / 1024) / 1024, 2);
-            //$lastModTime = date('d.m.Y H:i', Storage::lastModified($path));
-       
-            return array('name' => $name, 'path' => $path);  
-        }, $files);
+
+        sort($filenames);
         
-        return view('documents')->with(['files' => $files]);
+        return view('documents', array('filenames' => $filenames));
+    }
+
+    public function downloadFile($filename)
+    {
+        $mime = Storage::mimeType($filename);
+        $file = Storage::get($filename);
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $mime);
+
+        return $response;
     }
 }

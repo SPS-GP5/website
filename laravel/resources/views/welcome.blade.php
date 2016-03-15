@@ -12,6 +12,7 @@ Welcome
 <li><a href="#portfolio" class="smoothScroll"> Portfolio</a></li>
 <li><a href="#blog" class="smoothScroll"> Blog</a></li>
 <li><a href="#contact" class="smoothScroll"> Contact</a></li>
+<li><a href="/intern">Interner Bereich</a></li>
 @stop
 
 @section('content')

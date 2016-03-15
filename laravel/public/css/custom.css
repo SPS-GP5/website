@@ -64,12 +64,23 @@ form label {
 	padding-left: 30px;
 }
 
+.document-area .document-lastmodified {
+	padding-left: 30px;
+	padding-top: 0px;
+	margin-bottom: 10px;
+}
+
 .document-area .document-download {
 	text-align: center;
 }
 
 .document-row {
 	margin-bottom: -1px;
+}
+
+.alert {
+	width: 900px;
+	margin: 0 auto;
 }
 
 

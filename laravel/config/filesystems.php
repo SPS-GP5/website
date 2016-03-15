@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => 'local',
+    'default' => 'documents',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,10 @@ return [
     */
 
     'disks' => [
+        'documents' => [
+            'driver' => 'local',
+            'root' => storage_path('app/documents'),
+        ],
 
         'local' => [
             'driver' => 'local',

@@ -24,26 +24,21 @@ Dokumentenaustausch
         <hr>
         <div class="documents">
             <div class="row">
-                @if (count($files) > 0)
-                    @foreach ($files as $file)
-                    <div class="col-lg-12 document-row">
-                        <div class="document-area">
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <h3 class="document-title">{{ $file['name'] }}</h3>
-                                </div>
-                                <div class="col-lg-2">
-                                    <h3 class="document-download"><a href="{{ url($file['path']) }}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
-                                </div>
+                @foreach($filenames as $filename)
+                <div class="col-lg-12 document-row">
+                    <div class="document-area">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <h3 class="document-title">{{ $filename['filename'] }}</h3>
+                                <p class="document-lastmodified">{{ $filename['lastmodified'] }}</p>
+                            </div>
+                            <div class="col-lg-2">
+                                <h3 class="document-download"><a href="documents/get/{{ $filename['filename'] }}" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                @else
-                <div class="col-lg-12 document-row">
-                    <h3 class="document-title">Keine Dateien derzeit vorhanden</h3>
                 </div>
-                @endif
+                @endforeach
             </div>
         </div>
     </div>
