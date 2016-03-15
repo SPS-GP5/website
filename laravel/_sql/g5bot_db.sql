@@ -1,26 +1,78 @@
--- phpMyAdmin SQL Dump
--- version 4.0.4
--- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 14, 2016 at 10:58 PM
--- Server version: 5.5.31
--- PHP Version: 5.4.16
+-- Datenbank: `g5bot_db`
+--
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+-- --------------------------------------------------------
 
 --
--- Database: `g5bot_db`
+-- Tabellenstruktur für Tabelle `diaryentries`
 --
-CREATE DATABASE IF NOT EXISTS `g5bot_db` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `g5bot_db`;
+
+CREATE TABLE `diaryentries` (
+  `id` int(10) unsigned NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date` varchar(100) NOT NULL,
+  `hours` decimal(10,2) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL,
+  `firstname` varchar(200) NOT NULL,
+  `lastname` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  `remember_token` varchar(200) NOT NULL,
+  `confirmcode` varchar(200) NOT NULL,
+  `confirmed` int(11) NOT NULL DEFAULT '0',
+  `active` int(11) NOT NULL DEFAULT '0',
+  `role` int(11) NOT NULL DEFAULT '1',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Indizes für die Tabelle `diaryentries`
+--
+ALTER TABLE `diaryentries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `diaryentries`
+--
+ALTER TABLE `diaryentries`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT für Tabelle `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+
+
+
+
+
+
+
 
 -- --------------------------------------------------------
 
@@ -60,27 +112,4 @@ CREATE TABLE IF NOT EXISTS `statsview` (
   `timeSpent` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(50) NOT NULL,
-  `lastName` varchar(50) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `password` varchar(300) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `active` int(11) NOT NULL DEFAULT '0',
-  `role` int(11) NOT NULL DEFAULT '1',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
