@@ -21,10 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/documents', function () {
-    return view('documents');
-});
-
 /* === Login === */
 Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin');
@@ -33,12 +29,16 @@ Route::post('/login', 'AuthController@postLogin');
 Route::get('/register', function () { return view('register'); });
 Route::post('/register', 'AuthController@postRegister');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {    
     Route::get('logout', 'AuthController@getLogout');
-    Route::get('/intern', function () {
-        return view('intern');
-    });
+    
     Route::group(['prefix' => 'intern'], function () {
         
+        Route::get('/', function () {
+            return view('intern');
+        });
+        
+        /* === Documents === */
+        Route::get('/documents', 'DocumentController@getDocuments');
     });
 });

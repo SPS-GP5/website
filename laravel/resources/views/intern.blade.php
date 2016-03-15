@@ -13,7 +13,7 @@ Interner Bereich
 	<div class="container">
 	    <h1>INTERNER BEREICH</h1>
 	    <hr>
-	    <p>Hier befindet sich der Dokumentenaustausch und das Projekttagebuch.</p>
+	    <p>Hier befindet sich der Dokumentenaustausch, Projekttagebuch und Terminverwaltung.</p>
 	</div>
 </section>
 
@@ -22,7 +22,7 @@ Interner Bereich
         <div class="col-lg-4 callout">
             <span class="glyphicon glyphicon-hdd big-icon" aria-hidden="true"></span>
             <h2>Dokumentenaustausch</h2>
-            <p><a class="btn btn-success" href="#">Zum Dokumentenaustausch</a></p>
+            <p><a class="btn btn-success" href="/intern/documents">Zum Dokumentenaustausch</a></p>
             <p>Hier können Dateien hochgeladen werden und sind somit für alle Benutzer verfügbar.</p>
         </div>
             

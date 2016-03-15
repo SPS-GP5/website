@@ -78,10 +78,10 @@ class AuthController extends Controller
         if($validator->fails()){
             return redirect('register')
                 ->withErrors($validator)
-                ->withInput([
+                ->withInput(
                     $request->except('password'), 
                     $request->except('password_confirmation')
-                ]);       
+                );       
         }else {
             $user = new Users;
             $user->firstName = $request->firstname;
