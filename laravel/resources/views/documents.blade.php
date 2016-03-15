@@ -24,54 +24,26 @@ Dokumentenaustausch
         <hr>
         <div class="documents">
             <div class="row">
-                <div class="col-lg-12 document-row">
-                    <div class="document-area">
-                        <div class="row">
-                            <div class="col-lg-10">
-                                <h3 class="document-title">Pflichtenheft.pdf</h3>
-                            </div>
-                            <div class="col-lg-2">
-                                <h3 class="document-download"><a href="#"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 document-row">
-                    <div class="document-area">
-                        <div class="row">
-                            <div class="col-lg-10">
-                                <h3 class="document-title">Pflichtenheft.pdf</h3>
-                            </div>
-                            <div class="col-lg-2">
-                                <h3 class="document-download"><a href="#"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
+                @if (count($files) > 0)
+                    @foreach ($files as $file)
+                    <div class="col-lg-12 document-row">
+                        <div class="document-area">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <h3 class="document-title">{{ $file['name'] }}</h3>
+                                </div>
+                                <div class="col-lg-2">
+                                    <h3 class="document-download"><a href="{{ url($file['path']) }}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    @endforeach
+                @else
                 <div class="col-lg-12 document-row">
-                    <div class="document-area">
-                        <div class="row">
-                            <div class="col-lg-10">
-                                <h3 class="document-title">Pflichtenheft.pdf</h3>
-                            </div>
-                            <div class="col-lg-2">
-                                <h3 class="document-download"><a href="#"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="document-title">Keine Dateien derzeit vorhanden</h3>
                 </div>
-                <div class="col-lg-12 document-row">
-                    <div class="document-area">
-                        <div class="row">
-                            <div class="col-lg-10">
-                                <h3 class="document-title">Pflichtenheft.pdf</h3>
-                            </div>
-                            <div class="col-lg-2">
-                                <h3 class="document-download"><a href="#"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

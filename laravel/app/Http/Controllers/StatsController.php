@@ -38,7 +38,7 @@ class StatsController extends Controller
     {
         $validator = Validator::make($request->all());
 
-        if $validator->fails()) {
+        if($validator->fails()) {
             return redirect('stats')
                 ->withErrors($validator)
                 ->withInput();
@@ -57,7 +57,7 @@ class StatsController extends Controller
     {
         $validator = Validator::make($request->all());
 
-        if $validator->fails()) {
+        if($validator->fails()) {
             return redirect('stats')
                 ->withErrors($validator)
                 ->withInput();
