@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MailController;
 use Auth;
-use Hash;
 use Validator;
 use Illuminate\Http\Request;
 
@@ -51,7 +50,8 @@ class AuthController extends Controller
                 ->withInput($request->except('password'));
         }
         else {
-            if(Auth::attempt(['email' => $email, 'password' => $password, 'confirmed' => 1, 'active' => 1], true)) {
+            // Attempt a login without remembering the user if successful -> small security risk
+            if(Auth::attempt(['email' => $email, 'password' => $password, 'confirmed' => 1, 'active' => 1], false)) {
                 return redirect('/intern');
             }
             else {
