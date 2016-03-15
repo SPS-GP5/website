@@ -41,7 +41,7 @@ class AuthController extends Controller
         
         // Define input validation clause(s) for the login
         $validator = Validator::make($request->all(), [
-            'email' => 'required',
+            'email' => 'required|email|max:150',
             'password' => 'required'
         ]);
 
@@ -80,11 +80,12 @@ class AuthController extends Controller
     public function postRegister(Request $request)
     {
         // Define input validation clause(s) for registration
+        // The max contraints matches the ones set in the database 
         $validator = Validator::make($request->all(), [
-            'firstname' => 'required|min:3|max:50|alpha',
-            'lastname' => 'required|min:3|max:50|alpha',
+            'firstname' => 'required|min:3|max:200|alpha',
+            'lastname' => 'required|min:3|max:200|alpha',
             'email' => 'required|email|min:3|max:100|unique:users',
-            'password' => 'required|confirmed|min:8|max:100',
+            'password' => 'required|confirmed|min:8|max:300',
         ]);
 
         if($validator->fails()) {
@@ -102,12 +103,18 @@ class AuthController extends Controller
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
             $user->email = $request->email;
-            $user->password = Hash::make($request->password);
+            $user->password = bcrypt($request->password);
             $user->confirmcode = $confirmcode;
+            
+            // Default role = 1
+            /* Role settings: 
+                1 => readonly, show just documents and schedules (role for Mayr)
+                2 => readwrite, show all parts (role for our group)
+            */
+            // Default active = 0
             $user->save();
 
             $mail = MailController::sendWelcomeMail($request->firstname, $request->lastname, $request->email, $confirmcode);
-
             if($mail == true) {
                 return view('register', array('created' => true));
             }
@@ -119,7 +126,6 @@ class AuthController extends Controller
     public function confirmEmail($confirmcode)
     {
         $updated = User::where('confirmcode', $confirmcode)->update(['confirmed' => 1]);
-
         if($updated == 1) {
             return redirect('register')->with('confirmed', 'true');
         }
