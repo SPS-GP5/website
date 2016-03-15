@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin');
 
+/* === Statistics === */
+Route::get('/stats', 'StatsViewController@select');
+
 /* === Registration === */
 Route::get('/register', 'AuthController@showRegister');
 Route::post('/register', 'AuthController@postRegister');

@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\StatsView;
+use App\Models\StatsView;
 use App\Http\Controllers\Controller;
 
 class StatsViewController extends Controller
 {
     protected function select() {
-        $statsview = StatsView::all();
 
-        //dd($statsview);
+        $statsview = StatsView::all();
 
         return view('stats', ['statsview' => $statsview]);
     }

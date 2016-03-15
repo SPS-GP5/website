@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\stats;
+use App\Models\stats;
 use App\Http\Controllers\Controller;
 
-use Auth;
 use Validator;
-use Hash;
 use Illuminate\Http\Request;
 
 class StatsController extends Controller
