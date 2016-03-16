@@ -2,30 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use Storage;
 use Response;
-use File;
 
 class DocumentController extends Controller
 {
     public function showDocuments()
     {
-        $dirPath = storage_path() . '/app/documents';
-
-        $files = File::allFiles($dirPath);
+        $files = Storage::files();
         $filenames = array();
 
         foreach($files as $file) {
-            $filename = explode($dirPath . '/', $file);
-            $lastmodified = date("d.m.Y H:i:s", filemtime($file));
-            array_push($filenames, array('filename' => $filename[1], 'lastmodified' => $lastmodified));
-        }
-        
+            $lastmodified = date("d.m.Y H:i:s", Storage::lastModified($file));
+            array_push($filenames, array('filename' => $file, 'lastmodified' => $lastmodified));
+        }      
 
-        sort($filenames);
+        // sort as a standalone function doesn't understand in which order and on which key he should sort 
+        // an associative komplex array -> he doesn't sort by filename automatically
+        usort($filenames, function($a, $b) {
+            return $a['filename'] > $b['filename'];
+        });
         
         return view('documents', array('filenames' => $filenames));
     }
