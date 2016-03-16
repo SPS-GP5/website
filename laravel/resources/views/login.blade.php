@@ -4,6 +4,10 @@
 Login
 @stop
 
+@section('navbar-elements')
+@include('layouts.navbar-elements')
+@stop
+
 @section('content')
 <div id="headerwrap" class="small-headerwrap">
 	<header class="clearfix">
