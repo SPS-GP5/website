@@ -70,10 +70,6 @@ form label {
 	margin-bottom: 10px;
 }
 
-.document-area .document-download {
-	text-align: center;
-}
-
 .document-row {
 	margin-bottom: -1px;
 }
@@ -82,5 +78,38 @@ form label {
 	width: 900px;
 	margin: 0 auto;
 }
+
+.projectdiary {
+	text-align: center;
+	width: 700px;
+}
+
+.create-diaryentry-button {
+	width: 280px;
+    padding: 15px;
+}
+
+.icon-left-padding {
+	padding-left: 5px;
+}
+
+.projectdiary-overview-table {
+	text-align: left;
+}
+
+.text-centered {
+	text-align: center;
+}
+
+.select-member {
+	width: 300px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.margin-bottom-50 {
+	margin-bottom: 50px;
+}
+
 
 

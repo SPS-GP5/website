@@ -36,5 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
         /* === Documents === */
         Route::get('/documents', 'DocumentController@showDocuments');
         Route::get('/documents/{filename}', 'DocumentController@downloadFile');
+
+        /* === Projectdiary === */
+        Route::get('/projectdiary', 'ProjectdiaryController@showProjectdiary');
+        Route::get('/projectdiary/create', 'ProjectdiaryController@showCreateProjectentry');
     });
 });

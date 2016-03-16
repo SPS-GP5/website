@@ -19,7 +19,7 @@ Dokumentenaustausch
 <div class="container">
     <div class="row white">
         <br>
-        <h1 class="centered">Dokumentenaustausch</h1>
+        <h1 class="centered">Dokumente</h1>
         <hr>
         <div class="documents">
             <div class="row">
@@ -32,7 +32,7 @@ Dokumentenaustausch
                                 <p class="document-lastmodified">Zuletzt bearbeitet: {{ $filename['lastmodified'] }}</p>
                             </div>
                             <div class="col-lg-2">
-                                <h3 class="document-download"><a href="documents/{{ $filename['filename'] }}" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
+                                <h3 class="text-centered"><a href="documents/{{ $filename['filename'] }}" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
                             </div>
                         </div>
                     </div>
