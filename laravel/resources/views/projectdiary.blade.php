@@ -52,9 +52,9 @@ Projekttagebuch
                 <table class="table table-hover projectdiary-overview-table centered margin-bottom-50">
                     <thead>
                         <tr>
-                            <th>Datum</th>
-                            <th>Stunden</th>
-                            <th>Beschreibung</th>
+                            <th style="width: 15%">Datum</th>
+                            <th style="width: 15%">Stunden</th>
+                            <th style="width: 70%">Beschreibung</th>
                         </tr>
                     </thead>
                     <tbody id="projectdiary-useroverview"></tbody>
