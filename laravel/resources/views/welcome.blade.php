@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Welcome
+Willkommen
 @stop
 
 @section('navbar-elements')
@@ -94,9 +94,7 @@ Welcome
             <img class="img img-circle" src="/img/team/gruber.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Mathias Gruber</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/columbiannecktieaustria" target="_blank" class="icon icon-facebook"></a>
             <p>Projektleiter | Hardwaredesign</p>
         </div>
     </div>
@@ -105,36 +103,29 @@ Welcome
             <img class="img img-circle" src="/img/team/kocaj.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Alen Kocaj</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://twitter.com/plesioth20" target="_blank" class="icon icon-twitter"></a>
+            <a href="https://www.facebook.com/alen.kocaj" target="_blank" class="icon icon-facebook"></a>
             <p>Softwareentwicklung</p>
         </div>
         <div class="col-lg-3 centered">
             <img class="img img-circle" src="/img/team/stigler.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Daniel Stigler</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/daniel.stigler.9" target="_blank" class="icon icon-facebook"></a>
             <p>Softwareentwicklung</p>
         </div>
         <div class="col-lg-3 centered">
             <img class="img img-circle" src="/img/team/kaderle.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Tobias Kaderle</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/tobias.kaderle" target="_blank" class="icon icon-facebook"></a>
             <p>Hardwaredesign</p>
         </div>
         <div class="col-lg-3 centered">
             <img class="img img-circle" src="/img/team/keller.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Patrick Keller</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/patrick.keller.31337" target="_blank" class="icon icon-facebook"></a>
             <p>Qualitätssicherung | Korrektur</p>
         </div>
     </div>
@@ -143,36 +134,28 @@ Welcome
             <img class="img img-circle" src="/img/team/merker.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Lilly Kathalina Merker</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/lilly.k.merker" target="_blank" class="icon icon-facebook"></a>
             <p>Dokumentation | Qualitätssicherung</p>
         </div>
         <div class="col-lg-3 centered">
             <img class="img img-circle" src="/img/team/liedl.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Elisabeth Liedl</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/ElliRockt" target="_blank" class="icon icon-facebook"></a>
             <p>Dokumentation</p>
         </div>
         <div class="col-lg-3 centered">
             <img class="img img-circle" src="/img/team/oberauer.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Michael Oberauer</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/moberauer" target="_blank" class="icon icon-facebook"></a>
             <p>Koordinationsgruppenmitglied<br>Dokumentation</p>
         </div>
         <div class="col-lg-3 centered">
             <img class="img img-circle" src="/img/team/ester.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Michael Ester</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="https://www.facebook.com/michaelester.at" target="_blank" class="icon icon-facebook"></a>
             <p>Qualitätssicherung | Korrektur</p>
         </div>
     </div>
