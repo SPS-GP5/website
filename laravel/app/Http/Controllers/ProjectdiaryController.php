@@ -20,7 +20,7 @@ class ProjectdiaryController extends Controller
     	foreach($users as $user) {
     		$sum[$user->id] = DiaryEntry::where('user_id', $user->id)->sum('hours');
     	}
-
+	
     	return view('projectdiary', array('users' => $users, 'sum' => $sum));
     }
 
@@ -69,7 +69,7 @@ class ProjectdiaryController extends Controller
     public function ajaxGetUserEntries($user_id)
     {
     	$entries = DiaryEntry::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
-    	return view('layouts/projectdiary-entriesByUser', array('entries' => $entries));
+    	return array(view('layouts/projectdiary-entriesByUser', array('entries' => $entries))->render(), $entries);
     }
 }
 

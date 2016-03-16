@@ -94,7 +94,7 @@ form label {
 }
 
 .projectdiary-overview-table {
-	text-align: left;
+	text-align: right;
 }
 
 .text-centered {
@@ -143,5 +143,3 @@ form label {
 	background-color: transparent !important;
 	color: #999 !important;
 }
-
-
