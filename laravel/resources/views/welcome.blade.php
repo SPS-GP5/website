@@ -105,9 +105,10 @@ Welcome
             <img class="img img-circle" src="/img/team/kocaj.jpg" height="120px" width="120px" alt="">
             <br>
             <h4><b>Alen Kocaj</b></h4>
-            <a href="#" class="icon icon-twitter"></a>
-            <a href="#" class="icon icon-facebook"></a>
-            <a href="#" class="icon icon-flickr"></a>
+            <a href="#" class="icon icon-twitter" target="_blank"></a>
+            <a href="https://www.facebook.com/alen.kocaj" class="icon icon-facebook" target="_blank"></a>
+            <a href="#" class="icon icon-github" target="_blank"></a>
+            <a href="#" class="icon icon-google-plus" target="_blank"></a>
             <p>Softwareentwicklung</p>
         </div>
         <div class="col-lg-3 centered">
