@@ -22,6 +22,8 @@ return [
     ],
     'alpha'                => 'Das Feld :attribute darf nur Buchstaben enthalten.',
     'email'                => 'Das Feld :attribute muss ein gültiges Email-Format haben.',
+    'date_format'          => 'Das Feld :attribute muss folgendes Format haben: :format.',
+    'numeric'              => 'Das Feld :attribute muss eine Dezimalzahl (mit .) sein.',
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +42,7 @@ return [
         ],
         'password' => [
             'confirmed' => 'Die Passwörter stimmen nicht überein.'
-        ],
+        ]
     ],
 
     /*
@@ -59,6 +61,9 @@ return [
         'lastname' => 'Nachname',
         'email' => 'Email',
         'password' => 'Passwort',
+        'date' => 'Datum',
+        'hours' => 'Stunden',
+        'description' => 'Beschreibung'
     ],
 
 ];

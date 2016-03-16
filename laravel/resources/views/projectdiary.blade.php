@@ -21,7 +21,9 @@ Projekttagebuch
         <br>
         <div class="projectdiary centered">
             <div class="row">
+                @if(Auth::user()->role == 2)
                 <p><a class="btn btn-primary btn-lg btn-block create-diaryentry-button centered" href="/intern/projectdiary/create">Neuen Eintrag erstellen <span class="glyphicon glyphicon-plus icon-left-padding" aria-hidden="true"></span></a></p>
+                @endif
                 <h1 class="centered">Gesamtübersicht</h1>
                 <hr>
                 <table class="table table-hover projectdiary-overview-table centered">
@@ -32,32 +34,20 @@ Projekttagebuch
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($users as $user)
                         <tr>
-                            <td>Michael Ester</td>
-                            <td class="text-centered">13,5</td>
+                            <td>{{ $user->lastname . ' ' . $user->firstname }}</td>
+                            <td class="text-centered">{{ $sum[$user->id] }}</td>
                         </tr>
-                        <tr>
-                            <td>Michael Ester</td>
-                            <td class="text-centered">13,5</td>
-                        </tr>
-                        <tr>
-                            <td>Michael Ester</td>
-                            <td class="text-centered">13,5</td>
-                        </tr>
-                        <tr>
-                            <td>Michael Ester</td>
-                            <td class="text-centered">13,5</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <h1 class="centered">Einzelübersicht</h1>
                 <hr>
-                <select class="form-control select-member centered">
-                    <option>Michael Ester</option>
-                    <option>Michael Ester</option>
-                    <option>Michael Ester</option>
-                    <option>Michael Ester</option>
-                    <option>Michael Ester</option>
+                <select class="form-control select-member centered" id="userselect" onchange="javascript:loadUserTable()">
+                    @foreach($users as $user)
+                    <option value="{{ $user->id }}" @if(Auth::user()->id == $user->id) selected @endif>{{$user->lastname . ' ' . $user->firstname }}</option>
+                    @endforeach
                 </select>
                 <table class="table table-hover projectdiary-overview-table centered margin-bottom-50">
                     <thead>
@@ -67,17 +57,28 @@ Projekttagebuch
                             <th>Beschreibung</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>23.04.2016</td>
-                            <td>1,5</td>
-                            <td>Website entwickelt</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="projectdiary-useroverview"></tbody>
                 </table>
             </div>
         </div> 
     </div>
 </div>
+
+<script type="text/javascript">
+function loadUserTable() {
+    var selected_wg_id = $("#userselect").find('option').eq($("#userselect")[0].selectedIndex).val();
+
+    $.ajax({
+        async: false,
+        type: 'GET',
+        url: "/intern/projectdiary/getUserEntries/" + selected_wg_id,
+        success: function(data) {
+            $("#projectdiary-useroverview").html(data);
+        }
+    });
+}
+
+loadUserTable();
+</script>
 @stop
 

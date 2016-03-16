@@ -43,5 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
         /* === Projectdiary === */
         Route::get('/projectdiary', 'ProjectdiaryController@showProjectdiary');
         Route::get('/projectdiary/create', 'ProjectdiaryController@showCreateProjectentry');
+        Route::post('/projectdiary/create', 'ProjectdiaryController@postCreateProjectentry');
+        Route::get('/projectdiary/getUserEntries/{user_id}', 'ProjectdiaryController@ajaxGetUserEntries');
     });
 });
