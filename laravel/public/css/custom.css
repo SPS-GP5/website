@@ -111,5 +111,37 @@ form label {
 	margin-bottom: 50px;
 }
 
+.margin-bottom-30 {
+	margin-bottom: 30px;
+}
+
+.margin-top-50 {
+	margin-top: 50px;
+}
+
+.margin-top-10 {
+	margin-top: 10px;
+}
+
+.start-headerwrap {
+	min-height: 550px !important;
+}
+
+.start-headline {
+	font-size: 95px !important;
+}
+
+.start-introduction {
+	margin-bottom: 25px;
+}
+.divider-hagenberg {
+    background-image: url('../img/fhhagenberg.jpg');
+    border-bottom: 0px;
+}
+
+.active a {
+	background-color: transparent !important;
+	color: #999 !important;
+}
 
 

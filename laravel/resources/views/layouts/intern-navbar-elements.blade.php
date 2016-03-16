@@ -3,4 +3,4 @@
 <li><a href="/intern/documents">Dokumentenaustausch</a></li>
 <li><a href="/intern/projectdiary">Projekttagebuch</a></li>
 <li><a href="#">Terminverwaltung</a></li>
-<li><a href="/logout">Ausloggen</a></li>
+<li><a href="/logout">Ausloggen ({{ Auth::user()->firstname . ' ' . Auth::user()->lastname}})</a></li>
