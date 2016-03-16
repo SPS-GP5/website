@@ -29,10 +29,10 @@ Dokumentenaustausch
                         <div class="row">
                             <div class="col-lg-10">
                                 <h3 class="document-title">{{ $filename['filename'] }}</h3>
-                                <p class="document-lastmodified">Zuletzt bearbeitet: {{ $filename['lastmodified'] }}</p>
+                                <p class="document-lastmodified">Zuletzt bearbeitet: {{ $filename['lastmodified'] }} | {{ $filename['size'] }} KB</p>
                             </div>
                             <div class="col-lg-2">
-                                <h3 class="text-centered"><a href="documents/{{ $filename['filename'] }}" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
+                                <h3 class="text-centered"><a href="/intern/documents/{{ $filename['filename'] }}" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></h3>
                             </div>
                         </div>
                     </div>

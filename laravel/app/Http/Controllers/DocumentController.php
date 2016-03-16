@@ -14,7 +14,12 @@ class DocumentController extends Controller
 
         foreach($files as $file) {
             $lastmodified = date("d.m.Y H:i:s", Storage::lastModified($file));
-            array_push($filenames, array('filename' => $file, 'lastmodified' => $lastmodified));
+            $size = round((Storage::size($file) / 1024), 2);
+            array_push($filenames, array(
+                'filename' => $file, 
+                'lastmodified' => $lastmodified, 
+                'size' => $size
+            ));
         }      
 
         // sort as a standalone function doesn't understand in which order and on which key he should sort 
