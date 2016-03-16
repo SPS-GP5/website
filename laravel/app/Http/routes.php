@@ -19,9 +19,6 @@ Route::get('/', function () {
 Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin');
 
-/* === Statistics === */
-Route::get('/stats', 'StatsViewController@select');
-
 /* === Registration === */
 Route::get('/register', 'AuthController@showRegister');
 Route::post('/register', 'AuthController@postRegister');
@@ -41,9 +38,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/documents/{filename}', 'DocumentController@downloadFile');
 
         /* === Projectdiary === */
-        Route::get('/projectdiary', 'ProjectdiaryController@showProjectdiary');
-        Route::get('/projectdiary/create', 'ProjectdiaryController@showCreateProjectentry');
-        Route::post('/projectdiary/create', 'ProjectdiaryController@postCreateProjectentry');
-        Route::get('/projectdiary/getUserEntries/{user_id}', 'ProjectdiaryController@ajaxGetUserEntries');
+        Route::get('/projectdiary', 'ProjectDiaryController@showProjectDiary');
+        Route::get('/projectdiary/create', 'ProjectDiaryController@showCreateProjectEntry');
+        Route::post('/projectdiary/create', 'ProjectDiaryController@postCreateProjectEntry');
+        Route::get('/projectdiary/getUserEntries/{user_id}', 'ProjectDiaryController@ajaxGetUserEntries');
     });
 });

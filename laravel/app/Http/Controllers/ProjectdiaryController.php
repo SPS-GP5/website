@@ -9,10 +9,9 @@ use App\Models\DiaryEntry;
 use Illuminate\Http\Request;
 use Validator;
 
-
-class ProjectdiaryController extends Controller
+class ProjectDiaryController extends Controller
 {
-    public function showProjectdiary()
+    public function showProjectDiary()
     {
     	$users = User::where('confirmed', 1)->where('active', 1)->where('role', 2)->orderBy('lastname')->orderBy('firstname')->get();
     	$sum = array();
@@ -24,7 +23,7 @@ class ProjectdiaryController extends Controller
     	return view('projectdiary', array('users' => $users, 'sum' => $sum));
     }
 
-    public function showCreateProjectentry()
+    public function showCreateProjectEntry()
     {
     	if(Auth::user()->role != 2) {
     		return redirect('/intern/projectdiary');
@@ -33,7 +32,7 @@ class ProjectdiaryController extends Controller
     	return view('projectdiary-create');
     }
 
-    public function postCreateProjectentry(Request $request)
+    public function postCreateProjectEntry(Request $request)
     {
     	if(Auth::user()->role != 2) {
     		return redirect('/intern/projectdiary');
