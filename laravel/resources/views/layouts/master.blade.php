@@ -17,6 +17,8 @@
         <link href="/css/icomoon.css" rel="stylesheet">
         <link href="/css/animate-custom.css" rel="stylesheet">
         <link href="/css/custom.css" rel="stylesheet">
+		<!-- Morris element stylesheet -->
+		<link href="/css/morris.css" rel="stylesheet">
 
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">

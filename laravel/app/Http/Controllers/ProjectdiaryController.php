@@ -9,10 +9,9 @@ use App\Models\DiaryEntry;
 use Illuminate\Http\Request;
 use Validator;
 
-
-class ProjectdiaryController extends Controller
+class ProjectDiaryController extends Controller
 {
-    public function showProjectdiary()
+    public function showProjectDiary()
     {
     	$users = User::where('confirmed', 1)->where('active', 1)->where('role', 2)->orderBy('lastname')->orderBy('firstname')->get();
     	$sum = array();
@@ -20,11 +19,11 @@ class ProjectdiaryController extends Controller
     	foreach($users as $user) {
     		$sum[$user->id] = DiaryEntry::where('user_id', $user->id)->sum('hours');
     	}
-
+	
     	return view('projectdiary', array('users' => $users, 'sum' => $sum));
     }
 
-    public function showCreateProjectentry()
+    public function showCreateProjectEntry()
     {
     	if(Auth::user()->role != 2) {
     		return redirect('/intern/projectdiary');
@@ -33,7 +32,7 @@ class ProjectdiaryController extends Controller
     	return view('projectdiary-create');
     }
 
-    public function postCreateProjectentry(Request $request)
+    public function postCreateProjectEntry(Request $request)
     {
     	if(Auth::user()->role != 2) {
     		return redirect('/intern/projectdiary');
@@ -69,7 +68,7 @@ class ProjectdiaryController extends Controller
     public function ajaxGetUserEntries($user_id)
     {
     	$entries = DiaryEntry::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
-    	return view('layouts/projectdiary-entriesByUser', array('entries' => $entries));
+    	return array(view('layouts/projectdiary-entriesByUser', array('entries' => $entries))->render(), $entries);
     }
 }
 
