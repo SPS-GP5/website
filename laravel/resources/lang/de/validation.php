@@ -16,6 +16,7 @@ return [
     'required'             => 'Das Feld :attribute ist erforderlich.',
     'min'                  => [
         'string'  => 'Das Feld :attribute muss mindestens :min Zeichen lang sein.',
+		'numeric' => 'Der Wert des Feldes :attribute muss größer oder gleich :min sein.'
     ],
     'max'                  => [
         'string'  => 'Das Feld :attribute darf maximal :max Zeichen lang sein.',

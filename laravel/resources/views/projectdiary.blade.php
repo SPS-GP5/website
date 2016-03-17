@@ -63,27 +63,29 @@ Projekttagebuch
 				</tr>
 			</table>
 			</div>
-			<div class="row">
-			<h1 class="centered">Einzelübersicht</h1>
-			<hr>		
-			<select class="form-control select-member centered" id="userselect" onchange="javascript:loadUserTable()">
-				@foreach($husers as $user)
-					<option value="{{ $user->id }}" @if(Auth::user()->id == $user->id) selected @endif>{{$user->lastname . ' ' . $user->firstname }}</option>
-				@endforeach
-			</select>
-			<div class="morris-hover" id="secondChart" style="height: 250px;"></div>
-			<br><br><br><br>
-			<table class="table table-hover projectdiary-overview-table centered margin-bottom-50">
-				<thead>
-					<tr>
-						<th class="text-centered" style="width: 15%">Datum</th>
-						<th class="text-centered" style="width: 15%">Stunden</th>
-						<th class="text-centered" style="width: 70%">Beschreibung</th>
-					</tr>
-				</thead>
-				<tbody id="projectdiary-useroverview"></tbody>
-			</table>
-			</div>
+			@if (count($husers) > 0) 
+				<div class="row">
+				<h1 class="centered">Einzelübersicht</h1>
+				<hr>		
+				<select class="form-control select-member centered" id="userselect" onchange="javascript:loadUserTable()">
+					@foreach($husers as $user)
+						<option value="{{ $user->id }}" @if(Auth::user()->id == $user->id) selected @endif>{{$user->lastname . ' ' . $user->firstname }}</option>
+					@endforeach
+				</select>
+				<div class="morris-hover" id="secondChart" style="height: 250px;"></div>
+				<br><br><br><br>
+				<table class="table table-hover projectdiary-overview-table centered margin-bottom-50">
+					<thead>
+						<tr>
+							<th class="text-centered" style="width: 15%">Datum</th>
+							<th class="text-centered" style="width: 15%">Stunden</th>
+							<th class="text-centered" style="width: 70%">Beschreibung</th>
+						</tr>
+					</thead>
+					<tbody id="projectdiary-useroverview"></tbody>
+				</table>
+				</div>
+			@endif
     </div>
 </div>
 

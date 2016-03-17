@@ -15,7 +15,7 @@ class ProjectDiaryController extends Controller
     {
     	$users = User::where('confirmed', 1)->where('active', 1)->where('role', 2)->orderBy('lastname')->orderBy('firstname')->get();
     	$sum = array();
-		$huser = array(); // new array for users with entries in DiaryEntry
+		$husers = array(); // new array for users with entries in DiaryEntry
 		$hsum = array();  // new array for sum(hours) of users with entries in DiaryEntry
 		
     	foreach($users as $user) {
@@ -53,7 +53,7 @@ class ProjectDiaryController extends Controller
         
         $validator = Validator::make($request->all(), [
         	'date' => 'required|date_format:d.m.Y',
-            'hours' => 'required|numeric',
+            'hours' => 'required|numeric|min:0.01',
             'description' => 'required|max:500'
         ]);
 
