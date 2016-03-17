@@ -67,7 +67,7 @@ Projekttagebuch
 			<h1 class="centered">Einzelübersicht</h1>
 			<hr>		
 			<select class="form-control select-member centered" id="userselect" onchange="javascript:loadUserTable()">
-				@foreach($users as $user)
+				@foreach($husers as $user)
 					<option value="{{ $user->id }}" @if(Auth::user()->id == $user->id) selected @endif>{{$user->lastname . ' ' . $user->firstname }}</option>
 				@endforeach
 			</select>
@@ -97,7 +97,6 @@ function loadUserTable() {
         type: 'GET',
         url: "/intern/projectdiary/getUserEntries/" + selected_wg_id,
         success: function(data) {
-			console.log(data);
             $("#projectdiary-useroverview").html(data[0]);
 			updateMorris(data[1]);
         }
@@ -122,7 +121,6 @@ function updateMorris(data) {
 			value: data[i]["hours"]
 		});
 	}
-	//console.log(arr);
 
 	new Morris.Line({
 		// ID of the element in which to draw the chart.
@@ -136,7 +134,7 @@ function updateMorris(data) {
 		ykeys: ['value'],
 		// Labels for the ykeys -- will be displayed when you hover over the
 		// chart.
-		labels: ['Value']
+		labels: ['Stunden']
 	});
 }
 

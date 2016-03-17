@@ -15,12 +15,21 @@ class ProjectDiaryController extends Controller
     {
     	$users = User::where('confirmed', 1)->where('active', 1)->where('role', 2)->orderBy('lastname')->orderBy('firstname')->get();
     	$sum = array();
-
+		$huser = array(); // new array for users with entries in DiaryEntry
+		$hsum = array();  // new array for sum(hours) of users with entries in DiaryEntry
+		
     	foreach($users as $user) {
-    		$sum[$user->id] = DiaryEntry::where('user_id', $user->id)->sum('hours');
+			$temp = DiaryEntry::where('user_id', $user->id)->sum('hours');
+			// hours greater 0		
+			if ($temp > 0) {
+				$husers[$user->id] = $user;
+				$hsum[$user->id] = $temp;
+			} 
+			// old behavior => pie chart needs that 
+			$sum[$user->id] = $temp;
     	}
-	
-    	return view('projectdiary', array('users' => $users, 'sum' => $sum));
+
+    	return view('projectdiary', array('users' => $users, 'sum' => $sum, 'husers' => $husers, 'hsum' => $hsum));
     }
 
     public function showCreateProjectEntry()
