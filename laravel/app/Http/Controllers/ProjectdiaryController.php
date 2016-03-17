@@ -76,7 +76,7 @@ class ProjectDiaryController extends Controller
 
     public function ajaxGetUserEntries($user_id)
     {
-    	$entries = DiaryEntry::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
+    	$entries = DiaryEntry::where('user_id', $user_id)->orderBy('date', 'desc')->get();
     	return array(view('layouts/projectdiary-entriesByUser', array('entries' => $entries))->render(), $entries);
     }
 }
