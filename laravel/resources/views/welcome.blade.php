@@ -10,10 +10,10 @@ Willkommen
 
 @section('content')
 <div id="headerwrap" class="start-headerwrap" id="home" name="home">
-    <header class="clearfix">
+    <!--<header class="clearfix">
         <h1><span class="glyphicon glyphicon-road" aria-hidden="true"></span></h1>
         <p class="start-headline">G5BOT</p>
-    </header>
+    </header>-->
 </div>
 
 <div class="container start-introduction" id="introduction" name="introduction">
@@ -23,11 +23,11 @@ Willkommen
         <hr>
         
         <div class="col-lg-6">
-            <p>Im Zuge dieses Projektes soll ein autonom fahrender Roboter konstruier und eine Steuerungssoftware erstellt werden. Die Roboterhardware wurde dazu in Form eines Baukastens vom Auftraggeber zur Verfügung gestellt. Es handelt sich bei dieser Hardware um Lego Mindstorms Bauteile, wobei die zentrale Komponente der EV3 Brick ist, welcher die Steuerungslogik enthält und die erstellte Software ausführen kann. Es ist dem Auftragnehmer nicht erlaubt, die verfügbaren Teile - mit Ausnahme der EV3 Firmware - zu modifizieren. Als Firmware kommt MonoBrick zum Einsatz.</p>
+            <p>Im Zuge dieses Projektes soll ein autonom fahrender Roboter konstruiert und eine Steuerungssoftware erstellt werden. Die Roboterhardware wurde dazu in Form eines Baukastens vom Auftraggeber zur Verfügung gestellt. Es handelt sich bei dieser Hardware um Lego Mindstorms Bauteile, wobei die zentrale Komponente der EV3 Brick ist, welcher die Steuerungslogik enthält und die entwickelte Software ausführen kann. Als Firmware kommt MonoBrick zum Einsatz.</p>
         </div>
         
         <div class="col-lg-6">
-            <p>Die Aufgabe für den Roboter besteht darin, sich in einem nach außen abgeschotteten Labyrinth zu orientieren und die Hello Kitty Figur zu finden. Es werden Punkte erspielt, indem wie bei PacMan „Kugeln“ eingesammelt werden wobei gesammelte Kugeln drastisch mehr wert sind, wenn man die Hello Kitty Figur bereits eingesammelt hat. Nach einer gewissen Zeit wird das Spiel beendet und das Ergebnis durch Zählen und Werten der „Kugeln“ bestimmt. Sollten alle „Kugeln“ und die Figur vor Ablauf der Zeit eingesammelt worden sein, wird das Spiel vorzeitig beendet.</p>
+            <p>Die Aufgabe für den Roboter besteht darin, sich in einem nach außen abgeschotteten Labyrinth zu orientieren und eine Hello Kitty Figur zu finden. Es werden Punkte erspielt, indem wie bei PacMan Legosteine eingesammelt werden, wobei gesammelte Kugeln drastisch mehr wert sind, wenn man die Hello Kitty Figur bereits eingesammelt hat. Nach einer gewissen Zeit wird das Spiel beendet und das Ergebnis durch Zählen und Werten der Legosteine bestimmt. Sollten alle Legosteine und die Figur vor Ablauf der Zeit eingesammelt worden sein, wird das Spiel vorzeitig beendet.</p>
         </div>
     </div>
 </div>
@@ -40,17 +40,17 @@ Willkommen
         <br>
         <div class="col-lg-4 callout">
             <span class="glyphicon glyphicon-random big-icon" aria-hidden="true"></span>
-            <h3>Unabhängigkeit vom Einsatzort</h3>
+            <h3 class="h3-keywords">Unabhängigkeit vom Einsatzort</h3>
             <p>Die Funktionalität muss in dem definierten Umfeld (Labyrinth) gegeben sein. Außerhalb kann der Roboter nicht eingesetzt werden.</p>
         </div>
         <div class="col-lg-4 callout">
             <span class="glyphicon glyphicon-shopping-cart big-icon" aria-hidden="true"></span>
-            <h3>Abladen der gesammelten Gegenstände</h3>
-            <p>Die aufgenommenen Kugeln sowie die Hello Kitty Figur müssen nicht vom Roboter selbst wieder abgeladen werden können.</p>
+            <h3 class="h3-keywords">Abladen der gesammelten Gegenstände</h3>
+            <p>Die aufgenommenen Legosteine sowie die Hello Kitty Figur müssen nicht vom Roboter selbst wieder abgeladen werden können.</p>
         </div>
         <div class="col-lg-4 callout">
             <span class="glyphicon glyphicon-eye-open big-icon" aria-hidden="true"></span>
-            <h3>Erkennen, ob noch Kugeln am Spielfeld sind</h3>
+            <h3 class="h3-keywords">Erkennen, ob noch Kugeln am Spielfeld sind</h3>
             <p>Der Roboter muss nicht dazu in der Lage sein zu erkennen, ob noch sammelbare Objekte im Labyrinth zu finden sind.</p>
         </div>
     </div>
@@ -65,7 +65,7 @@ Willkommen
                 </div>
                 <div class="col-lg-4">
                     <h2>G5BOT</h2>
-                    <p>Hier sieht man unseren ersten Prototypen. Komponenten wie zum Beispiel einen Greifer werden im Laufe des Projekts noch hinzugefügt.</p>
+                    <p>Hier sieht man unseren ersten Prototypen. Komponenten, wie zum Beispiel einen Greifer, werden im Laufe des Projekts noch hinzugefügt.</p>
                 </div>                  
             </div>
         </div>
@@ -79,7 +79,7 @@ Willkommen
         <h1>ANFORDERUNGEN</h1>
         <hr>
         <p>Farbunterscheidung | Reaktion auf erkannte Farben | Bewegungsaktionen | Abgrenzungserkennung</p>
-        <p>Aufnehmen und halten von „Kugeln“ | Aufnehmen und halten der „Hello Kitty“ Figur</p>
+        <p>Aufnehmen und halten von Legosteinen | Aufnehmen und halten der „Hello Kitty“ Figur</p>
     </div>
 </section>
 
